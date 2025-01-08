@@ -1,9 +1,9 @@
 ﻿namespace OOPs.Hierarchy_Tasks;
 
-public abstract class BankAccount
+public class BankAccount
 {
-    private string _Account_Number {  get; set; }
-    private decimal _balance { get; set; }
+    public string _Account_Number {  get; set; }
+    public decimal _balance { get; set; }
 
 
     public BankAccount(string accountNumber, decimal balance)
@@ -18,7 +18,7 @@ public abstract class BankAccount
         Console.WriteLine($"\n {amount} Deposited.\nCurrent Balance = {_balance} ");
     }
 
-    public void WithDraw(decimal amount) {
+    public virtual void WithDraw(decimal amount) {
         if (amount > _balance) 
         {
             Console.WriteLine("Insufficient Funds in Account");
@@ -31,3 +31,29 @@ public abstract class BankAccount
      }
 
 }
+
+public class SavingsAccount : BankAccount
+{
+    private const int Minimum_Balance = 5000;
+    public SavingsAccount(string accountNumber, decimal balance) : base(accountNumber, balance)
+    {
+    }
+
+    public override void WithDraw(decimal amount) {
+    
+        if (amount > _balance) 
+        {
+            Console.WriteLine("Insufficient Funds in Account");
+        }
+        else if(_balance - amount < Minimum_Balance)
+        {
+            Console.WriteLine($"Minimum Balance of {Minimum_Balance} must be maintained. \n Current Balance = {_balance}.");
+        }
+        else 
+        {
+            _balance = _balance - amount;
+            Console.WriteLine($"\n{amount} WithDrawn.\nCurrent Balance = {_balance}");
+        }
+    }
+}
+
