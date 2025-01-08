@@ -1,4 +1,4 @@
-﻿namespace OOPs.Hierarchy_Tasks;
+﻿namespace OOPs.BankingSystem;
 
 public class BankAccount
 {

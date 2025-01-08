@@ -1,4 +1,4 @@
-﻿namespace OOPs.Hierarchy_Tasks;
+﻿namespace OOPs.EmployeeHierarchy;
 
 
 public abstract class Employee
