@@ -2,8 +2,8 @@
 
 public class BankAccount
 {
-    public string _Account_Number {  get; set; }
-    public decimal _balance { get; set; }
+    protected string _Account_Number {  get; set; }
+    protected decimal _balance { get; set; }
 
 
     public BankAccount(string accountNumber, decimal balance)
@@ -45,7 +45,7 @@ public class SavingsAccount : BankAccount
         }
         else if(_balance - amount < Minimum_Balance)
         {
-            Console.WriteLine($"Minimum Balance of {Minimum_Balance} must be maintained. \n Current Balance = {_balance}.");
+            Console.WriteLine($"Cannot Withdraw {amount}.\nMinimum Balance of {Minimum_Balance} must be maintained. \n Current Balance = {_balance}.");
         }
         else 
         {
