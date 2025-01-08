@@ -25,7 +25,7 @@ public class BankAccount
         }
         else 
         {
-            _balance = _balance - amount;
+            _balance -= amount;
             Console.WriteLine($"\n{amount} WithDrawn.\nCurrent Balance = {_balance}");
         }
      }
@@ -35,9 +35,7 @@ public class BankAccount
 public class SavingsAccount : BankAccount
 {
     private const int Minimum_Balance = 5000;
-    public SavingsAccount(string accountNumber, decimal balance) : base(accountNumber, balance)
-    {
-    }
+    public SavingsAccount(string accountNumber, decimal balance) : base(accountNumber, balance) { }
 
     public override void WithDraw(decimal amount) {
     
@@ -57,3 +55,12 @@ public class SavingsAccount : BankAccount
     }
 }
 
+public class CheckingAccount : BankAccount
+{
+    public CheckingAccount(string accountNumber, decimal balance) : base(accountNumber, balance) { }
+
+    public override void WithDraw(decimal amount) { 
+    
+        _balance -= amount;
+    }
+}
